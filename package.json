@@ -26,6 +26,6 @@
     "bower": "~1.3",
     "load-grunt-tasks": "~0.4.0",
     "grunt-shared-config": "https://github.com/goodtwin/grunt-shared-config/archive/1f0a6e12b365ad9bda3e411f2a2cb74683df1d2e.tar.gz",
-    "bagel": "https://github.com/goodtwin/bagel/archive/523a4440ff6278d1f905daba25e1f6ee14705801.tar.gz"
+    "bagel": "https://github.com/goodtwin/bagel/archive/7751a6939747fedb2493c8330a44bb7ddb6c688c.tar.gz"
   }
 }
