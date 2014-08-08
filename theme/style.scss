@@ -1,21 +1,4 @@
-$bagel : "../../node_modules/bagel/";
-
-/**
-* First need to grab our component config & variables.
-* These will override any defaults
-* Set within source.
-**/
-@import "../node_modules/bagel/src/defaults";
 @import "config";
-@import "variables/init";
-
-/**
-* Bring in the abstractions
-**/
-@import "../node_modules/bagel/src/import";
-
-/**
-* Prototype theme + our theme + overrides
-**/
 @import "../node_modules/bagel/style/import";
+@import "variables/init";
 @import "import";
