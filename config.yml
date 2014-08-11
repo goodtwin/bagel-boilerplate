@@ -107,3 +107,8 @@ table:
   include: true
   theme:
     prototype: true
+layout:
+  display:
+    include: true
+  flexbox:
+    include: true
