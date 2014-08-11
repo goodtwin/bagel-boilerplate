@@ -1,9 +1,0 @@
-{
-  "button": {
-    "include": true,
-    "theme" : {
-      "prototype": false,
-      "mytheme": true
-    }
-  }
-}

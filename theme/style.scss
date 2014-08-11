@@ -1,4 +1,29 @@
+/**
+* First we grab our component config
+* These will override any defaults
+* Set within source.
+* Config sets which components to include
+* as well as which theme/style to incorporate.
+* This allows one to work through each component's
+* style while have a theme fallback for the unfinished
+* components.
+**/
 @import "config";
-@import "../node_modules/bagel/style/import";
+
+/**
+* Import all of our variables
+* These can include size and theme
+* Variables which are used in the
+* Bagel Source and Bagel Prototype Styles.
+**/
 @import "variables/init";
+
+/**
+* Import all of bagel
+**/
+@import "../node_modules/bagel/style/import";
+
+/**
+* Import all of our component styles
+**/
 @import "import";

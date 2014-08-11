@@ -1,0 +1,109 @@
+button:
+  include: true
+  theme:
+    prototype: false
+    mytheme: true
+card:
+  include: true
+  theme:
+    prototype: true
+checkbox:
+  include: true
+  theme:
+    prototype: true
+divider:
+  include: true
+  theme:
+    prototype: true
+icons:
+  include: true
+  theme:
+    prototype: true
+image:
+  include: true
+  theme:
+    prototype: true
+input:
+  include: true
+  theme:
+    prototype: true
+label:
+  include: true
+  theme:
+    prototype: true
+loader:
+  include: true
+  theme:
+    prototype: true
+media:
+  include: true
+  theme:
+    prototype: true
+progress:
+  include: true
+  theme:
+    prototype: true
+reveal:
+  include: true
+  theme:
+    prototype: true
+segment:
+  include: true
+  theme:
+    prototype: true
+step:
+  include: true
+  theme:
+    prototype: true
+dropdown:
+  include: true
+  theme:
+    prototype: true
+form:
+  include: true
+  theme:
+    prototype: true
+menu:
+  include: true
+  theme:
+    prototype: true
+message:
+  include: true
+  theme:
+    prototype: true
+modal:
+  include: true
+  theme:
+    prototype: true
+nag:
+  include: true
+  theme:
+    prototype: true
+popup:
+  include: true
+  theme:
+    prototype: true
+search:
+  include: true
+  theme:
+    prototype: true
+sidebar:
+  include: true
+  theme:
+    prototype: true
+accordion:
+  include: true
+  theme:
+    prototype: true
+grid:
+  include: true
+  theme:
+    prototype: true
+tab:
+  include: true
+  theme:
+    prototype: true
+table:
+  include: true
+  theme:
+    prototype: true

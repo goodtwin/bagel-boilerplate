@@ -3,7 +3,7 @@ module.exports = function (grunt) {
   'use strict';
 
   var globalConfig = {
-    src: 'src',
+    src: 'node_modules/bagel/src',
     style: 'theme',
     prototype: 'node_modules/bagel/style',
     docs: 'node_modules/bagel/docs',
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
           name: "globalConfig",
           cssFormat: "dash"
         },
-        src: "config.json",
+        src: "config.yml",
         dest: [
           "<%= globalConfig.style  %>/config.scss"
         ]
