@@ -31,15 +31,10 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= globalConfig.prototype  %>',
+          cwd: '.tmp/docs',
           src: ['**/*.hbs'],
           dest: '<%= globalConfig.dist.docs  %>'
-          },{
-          expand: true,
-          cwd: '<%= globalConfig.style  %>',
-          src: ['**/*.hbs'],
-          dest: '<%= globalConfig.dist.docs  %>'
-        }]
+          }]
       },
       mockups: {
         options: {
@@ -115,6 +110,12 @@ module.exports = function (grunt) {
           src: ['<%= globalConfig.dist.docs  %>/*']
         }
         ]
+      },
+      tempdocs: {
+        files : [{
+          dot: true,
+          src: ['.tmp/docs*']
+        }]
       }
     },
     copy: {
@@ -165,6 +166,21 @@ module.exports = function (grunt) {
           src: ['**/*'],
           dest: '<%= globalConfig.dist.mockups  %>/assets/assets/'
         }]
+      },
+      tempdocs: {
+        files: [
+        {
+          expand: true,
+          cwd: '<%= globalConfig.prototype  %>',
+          src: ['**/*.hbs'],
+          dest: '.tmp/docs'
+        },
+        {
+          expand: true,
+          cwd: '<%= globalConfig.style  %>',
+          src: ['**/*.hbs'],
+          dest: '.tmp/docs'
+        }]
       }
     },
     watch: {
@@ -210,8 +226,9 @@ grunt.loadNpmTasks('assemble');
 grunt.registerTask('default', ['build']);
 grunt.registerTask('distcss', ['sass:dist', 'myth:dist']);
 grunt.registerTask('doccss', ['sass:docs', 'myth:docs']);
+grunt.registerTask('docs', ['copy:tempdocs', 'assemble:docs', 'clean:tempdocs']);
 grunt.registerTask('mockups', ['clean', 'distcss', 'assemble:mockups', 'copy:mockups']);
 grunt.registerTask('dist', ['clean:dist', 'copy:dist', 'distcss', 'cssmin']);
-grunt.registerTask('build', ['clean', 'shared_config', 'dist', 'clean:docs', 'copy:docs', 'doccss', 'assemble']);
+grunt.registerTask('build', ['clean', 'shared_config', 'dist', 'clean:docs', 'copy:docs', 'doccss', 'docs', 'assemble:mockups']);
 
 };
