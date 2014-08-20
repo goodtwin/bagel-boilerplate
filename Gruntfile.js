@@ -3,16 +3,17 @@ module.exports = function (grunt) {
   'use strict';
 
   var globalConfig = {
-    src: 'node_modules/bagel/src',
-    style: 'theme',
-    prototype: 'node_modules/bagel/style',
-    docs: 'node_modules/bagel/docs',
+    docs: 'node_modules/bagel-core/docs',
     mockups: 'mockups',
+    prototype: 'node_modules/bagel-core/guide',
+    styleguide: 'guide',
+    src: 'node_modules/bagel-core/src',
+    style: 'chrome',
     dist: {
-      root: ' dist',
+      root: 'dist',
       docs: 'dist/docs',
-      style: 'dist/style',
-      mockups: 'dist/mockups'
+      mockups: 'dist/mockups',
+      style: 'dist/style'
     }
   };
 
@@ -55,17 +56,20 @@ module.exports = function (grunt) {
     shared_config: {
       style: {
         options: {
-          name: "globalConfig",
+          name: "defaultConfig",
           cssFormat: "dash",
           useSassMaps: true
         },
-        src: "config.yml",
+        src: ['node_modules/**/bagel-*/config.yml', 'node_modules/bagel-*/config.yml', 'config.yml'], // order matters,
         dest: [
           "<%= globalConfig.style  %>/config.scss"
         ]
       }
     },
     sass: {
+      options: {
+        loadPath: ['./', 'node_modules/']
+      },
       dist: {
         files : {
           '<%= globalConfig.dist.style  %>/stylesheets/style.css': '<%= globalConfig.style  %>/style.scss'
@@ -224,12 +228,28 @@ module.exports = function (grunt) {
 require('load-grunt-tasks')(grunt);
 grunt.loadNpmTasks('assemble');
 
+grunt.registerTask('bagel:dirs',
+  'used to create an array of bagel paths for use in sass pathing',
+  function(){
+    var loadPaths = grunt.file.expand({}, [
+      './',
+      'chrome/',
+      'node_modules/',
+      'node_modules/bagel-*/node_modules/',
+      'node_modules/**/node_modules/bagel-*/node_modules/'
+    ]);
+    grunt.log.write(loadPaths.join(", "));
+    grunt.config.set('sass.options.loadPath', loadPaths);
+
+  });
+
+
 grunt.registerTask('default', ['build']);
 grunt.registerTask('distcss', ['sass:dist', 'myth:dist']);
 grunt.registerTask('doccss', ['sass:docs', 'myth:docs']);
 grunt.registerTask('docs', ['copy:tempdocs', 'assemble:docs', 'clean:tempdocs']);
 grunt.registerTask('mockups', ['clean', 'distcss', 'assemble:mockups', 'copy:mockups']);
 grunt.registerTask('dist', ['clean:dist', 'copy:dist', 'distcss', 'cssmin']);
-grunt.registerTask('build', ['clean', 'shared_config', 'dist', 'clean:docs', 'copy:docs', 'doccss', 'docs', 'assemble:mockups']);
+grunt.registerTask('build', ['clean', 'shared_config', 'bagel:dirs', 'dist', 'clean:docs', 'copy:docs', 'doccss', 'docs', 'assemble:mockups']);
 
 };
