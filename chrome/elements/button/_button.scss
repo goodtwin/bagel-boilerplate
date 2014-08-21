@@ -301,4 +301,20 @@
 			background-color: rgba(0, 0, 0, 0.05);
 		}
 	}
+
+	.ui.buttons {
+		.ui.button {
+			border-radius: 0;
+			border-right: none;
+
+			&:first-child {
+				border-radius: 2px 0 0 2px;
+			}
+
+			&:first-child {
+				border-radius: 0 2px 2px 0;
+				border-right: 2px solid palette(mytheme, red);
+			}
+		}
+	}
 }
