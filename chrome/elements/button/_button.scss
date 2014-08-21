@@ -221,6 +221,36 @@
 				background-color: palette(social, pinterest, 105);
 			}
 		}
+
+		/* Positive */
+		&.positive {
+			background-color: palette(info, success);
+			color: palette(neutral, white);
+			border: none;
+
+			&:hover {
+				background-color: palette(info, success, 110);
+			}
+
+			&:active {
+				background-color: palette(info, success, 105);
+			}
+		}
+
+		/* negative */
+		&.negative {
+			background-color: palette(info, error);
+			color: palette(neutral, white);
+			border: none;
+
+			&:hover {
+				background-color: palette(info, error, 110);
+			}
+
+			&:active {
+				background-color: palette(info, error, 105);
+			}
+		}
 		/*--------------
 			Icon
 		---------------*/
@@ -302,19 +332,41 @@
 		}
 	}
 
-	.ui.buttons {
+	.ui.buttons:not(.vertical) {
 		.ui.button {
 			border-radius: 0;
 			border-right: none;
 
 			&:first-child {
-				border-radius: 2px 0 0 2px;
+				border-radius: base(round) 0 0 base(round);
 			}
 
-			&:first-child {
-				border-radius: 0 2px 2px 0;
+			&:last-child {
+				border-radius: 0 base(round) base(round) 0;
 				border-right: 2px solid palette(mytheme, red);
 			}
+		}
+	}
+	.ui.vertical.buttons {
+		.ui.button {
+			border-radius: 0;
+			border-bottom: none;
+			border-right: 2px solid palette(mytheme, red);
+
+			&:first-child {
+				border-radius: base(round) base(round) 0 0;
+			}
+
+			&:last-child {
+				border-radius: 0 0 base(round) base(round);
+				border-bottom: 2px solid palette(mytheme, red);
+			}
+		}
+	}
+
+	.ui.basic.buttons {
+		.ui.button {
+			border: none!important;
 		}
 	}
 }
