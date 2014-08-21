@@ -36,6 +36,12 @@ module.exports = function (grunt) {
           cwd: '.tmp/docs',
           src: ['**/*.hbs'],
           dest: '<%= globalConfig.dist.docs  %>'
+        },
+        {
+          expand: true,
+          src: ['node_modules/bagel-core/**/node_modules/bagel-*/guide/**/*.hbs'],
+          flatten: true,
+          dest: '<%= globalConfig.dist.docs  %>'
         }]
       },
       mockups: {

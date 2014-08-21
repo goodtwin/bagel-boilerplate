@@ -3,12 +3,12 @@
 				Button
 	*******************************/
 	.ui.button {
-		background-color: rgb(55,155,55);
-		color: #808080;
+		background-color: palette(neutral, white);
+		color: palette(mytheme, red);
+		border: 2px solid palette(mytheme, red);
 		font-size: 1rem;
-		text-transform: uppercase;
-		font-weight: bold;
 		font-style: normal;
+		border-radius: base(round);
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	}
 
@@ -20,22 +20,23 @@
 			Active
 		---------------*/
 		&.active{
-			background-color: #EAEAEA;
+			color: palette(neutral, white);
+			background-color: palette(mytheme, red);
 		}
 		/*--------------
 			Hover
 		---------------*/
 		&:hover,
 		&.active:hover  {
-			color: rgba(0, 0, 0, 0.7);
+			background-color: palette(mytheme, red, 10);
 		}
 		/*--------------
 			Down
 		---------------*/
 		&:active,
 		&.active:active {
-			background-color: #F1F1F1;
-			color: rgba(0, 0, 0, 0.7);
+			color: palette(neutral, white);
+			background-color: palette(mytheme, red);
 		}
 		/*--------------
 			Loading
@@ -83,32 +84,34 @@
 			Primary
 		--------------------*/
 		&.primary {
-			background-color: #D95C5C;
-			color: #FFFFFF;
+			background-color: palette(mytheme, blue);
+			color: palette(neutral, white);
+			border: 2px solid palette(mytheme, blue);
 
 			&:hover,
 			&.active {
-				background-color: #E75859;
+				background-color: palette(mytheme, blue, 105);
 			}
 
 			&:active {
-				background-color: #D24B4C;
+				background-color: palette(mytheme, blue, 110);
 			}
 		}
 		/*-------------------
 			Secondary
 		--------------------*/
 		&.secondary {
-			background-color: #00B5AD;
-			color: #FFFFFF;
+			background-color: palette(neutral, white);
+			color: palette(mytheme, blue);
+			border: 2px solid palette(mytheme, blue);
 
 			&:hover,
 			&.active {
-				background-color: #009A93;
+				background-color: palette(mytheme, blue, 5);
 			}
 
 			&:active {
-				background-color: #00847E;
+				background-color: palette(mytheme, blue, 10);
 			}
 		}
 		/*-------------------
@@ -116,101 +119,106 @@
 		--------------------*/
 		/* Facebook */
 		&.facebook {
-			background-color: #3B579D;
-			color: #FFFFFF;
+			background-color: palette(social, facebook);
+			color: palette(neutral, white);
+			border:none;
 
 			&:hover {
-				background-color: #3A59A9;
+				background-color: palette(social, facebook, 110);
 			}
 
 			&:active {
-				background-color: #334F95;
+				background-color: palette(social, facebook, 105);
 			}
 		}
 
 		/* Twitter */
 		&.twitter {
-			background-color: #4092CC;
-			color: #FFFFFF;
+			background-color: palette(social, twitter);
+			color: palette(neutral, white);
+			border:none;
 
 			&:hover {
-				background-color: #399ADE;
-				color: #FFFFFF;
+				background-color: palette(social, twitter, 110);
 			}
 
 			&:active {
-				background-color: #3283BC;
-				color: #FFFFFF;
+				background-color: palette(social, twitter, 105);
 			}
 		}
 
 		/* Google Plus */
 		&.google.plus {
-			background-color: #D34836;
-			color: #FFFFFF;
+			background-color: palette(social, googleplus);
+			color: palette(neutral, white);
+			border:none;
 
 			&:hover {
-				background-color: #E3432E;
+				background-color: palette(social, googleplus, 110);
 			}
 
 			&:active {
-				background-color: #CA3A27;
+				background-color: palette(social, googleplus, 105);
 			}
 		}
 
 		/* LinkedIn */
 		&.linkedin {
-			background-color: #1F88BE;
-			color: #FFFFFF;
+			background-color: palette(social, linkedin);
+			color: palette(neutral, white);
+			border:none;
 
 			&:hover {
-				background-color: #1394D6;
+				background-color: palette(social, linkedin, 110);
 			}
 
 			&:active {
-				background-color: #1179AE;
+				background-color: palette(social, linkedin, 105);
 			}
 		}
 
 		/* YouTube */
 		&.youtube {
-			background-color: #CC181E;
-			color: #FFFFFF;
+			background-color: palette(social, youtube);
+			color: palette(neutral, white);
+			border:none;
 
 			&:hover {
-				background-color: #DF0209;
+				background-color: palette(social, youtube, 110);
 			}
 
 			&:active {
-				background-color: #A50006;
+				background-color: palette(social, youtube, 105);
 			}
 		}
 
 		/* Instagram */
 		&.instagram {
-			background-color: #49769C;
-			color: #FFFFFF;
+			background-color: palette(social, instagram);
+			color: palette(neutral, white);
+			border:none;
 
 			&:hover {
-				background-color: #4781B1;
+				background-color: palette(social, instagram, 110);
 			}
 
 			&:active {
-				background-color: #38658A;
+				background-color: palette(social, instagram, 105)
 			}
 		}
 
 		/* Pinterest */
 		&.pinterest {
-			background-color: #00ACED;
-			color: #FFFFFF;
+			background-color: palette(social, pinterest);
+			color: palette(neutral, white);
+			border:none;
 
 			&:hover {
-				background-color: #00B9FF;
+				background-color: palette(social, pinterest, 110);
 			}
 
 			&:active {
-				background-color: #009EDA;
+				background-color: palette(social, pinterest, 105);
 			}
 		}
 		/*--------------
@@ -225,6 +233,13 @@
 			Variations
 	*******************************/
 	.ui.button, .ui.buttons {
+
+		&.basic,
+		&.basic .button  {
+			background-color: transparent!important;
+			color: palette(neutral, black)!important;
+			border: none;
+		}
 		/*-------------------
 				Sizes
 		--------------------*/
