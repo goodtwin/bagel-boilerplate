@@ -13,9 +13,9 @@
 /**
  * Import all of bagel
  */
-@import "node_modules/bagel-core/init";
+@import "bagel-core/init";
 
 /**
  * Import all of our component styles
  */
-@import "import";
+@import "chrome/init";

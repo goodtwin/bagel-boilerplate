@@ -5,7 +5,8 @@ module.exports = function (grunt) {
   var globalConfig = {
     docs: 'node_modules/bagel-core/docs',
     mockups: 'mockups',
-    prototype: 'node_modules/bagel-core/guide',
+    protoguide: 'node_modules/bagel-core/guide',
+    prototype: 'node_modules/bagel-core/chrome',
     styleguide: 'guide',
     src: 'node_modules/bagel-core/src',
     style: 'chrome',
@@ -35,7 +36,7 @@ module.exports = function (grunt) {
           cwd: '.tmp/docs',
           src: ['**/*.hbs'],
           dest: '<%= globalConfig.dist.docs  %>'
-          }]
+        }]
       },
       mockups: {
         options: {
@@ -62,7 +63,7 @@ module.exports = function (grunt) {
         },
         src: ['node_modules/**/bagel-*/config.yml', 'node_modules/bagel-*/config.yml', 'config.yml'], // order matters,
         dest: [
-          "<%= globalConfig.style  %>/config.scss"
+          "config.scss"
         ]
       }
     },
@@ -72,15 +73,12 @@ module.exports = function (grunt) {
       },
       dist: {
         files : {
-          '<%= globalConfig.dist.style  %>/stylesheets/style.css': '<%= globalConfig.style  %>/style.scss'
+          '<%= globalConfig.dist.style  %>/stylesheets/style.css': 'init.scss'
         }
       },
-      docs: {
-        options: {
-          sourceComments: 'map',
-        },
+      styleguide: {
         files : {
-          '<%= globalConfig.dist.docs  %>/assets/stylesheets/docs.css': '<%= globalConfig.docs  %>/assets/stylesheets/docs.scss'
+          '<%= globalConfig.dist.docs  %>/stylesheets/styleguide.css': '<%= globalConfig.styleguide  %>/guide.scss'
         }
       },
     },
@@ -89,14 +87,24 @@ module.exports = function (grunt) {
         sourcemap: true
       },
       dist: {
-        files: {
-          '<%= globalConfig.dist.style  %>/stylesheets/style.css': '<%= globalConfig.dist.style  %>/stylesheets/style.css'
-        }
+        files: [
+          {
+            expand: true,
+            cwd: '<%= globalConfig.dist.style  %>/',
+            src: ['**/*.css'],
+            dest: '<%= globalConfig.dist.style  %>/'
+          }
+        ]
       },
       docs: {
-        files: {
-          '<%= globalConfig.dist.docs  %>/assets/stylesheets/docs.css': '<%= globalConfig.dist.docs  %>/assets/stylesheets/docs.css'
-        }
+        files: [
+          {
+            expand: true,
+            cwd: '<%= globalConfig.dist.docs  %>/',
+            src: ['**/*.css'],
+            dest: '<%= globalConfig.dist.docs  %>/'
+          }
+        ]
       }
     },
     clean: {
@@ -147,7 +155,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= globalConfig.docs  %>/assets/',
           src: ['images/*', 'javascripts/**/*.js', 'stylesheets/*.css'],
-          dest: '<%= globalConfig.dist.docs  %>/assets/'
+          dest: '<%= globalConfig.dist.docs  %>'
         }
         ]
       },
@@ -176,13 +184,13 @@ module.exports = function (grunt) {
         files: [
         {
           expand: true,
-          cwd: '<%= globalConfig.prototype  %>',
+          cwd: '<%= globalConfig.protoguide  %>',
           src: ['**/*.hbs'],
           dest: '.tmp/docs'
         },
         {
           expand: true,
-          cwd: '<%= globalConfig.style  %>',
+          cwd: '<%= globalConfig.styleguide  %>',
           src: ['**/*.hbs'],
           dest: '.tmp/docs'
         }]
@@ -246,8 +254,8 @@ grunt.registerTask('bagel:dirs',
 
 grunt.registerTask('default', ['build']);
 grunt.registerTask('distcss', ['sass:dist', 'myth:dist']);
-grunt.registerTask('doccss', ['sass:docs', 'myth:docs']);
-grunt.registerTask('docs', ['copy:tempdocs', 'assemble:docs', 'clean:tempdocs']);
+grunt.registerTask('doccss', ['sass:styleguide', 'myth:docs']);
+grunt.registerTask('docs', ['copy:tempdocs', 'doccss', 'assemble:docs', 'clean:tempdocs']);
 grunt.registerTask('mockups', ['clean', 'distcss', 'assemble:mockups', 'copy:mockups']);
 grunt.registerTask('dist', ['clean:dist', 'copy:dist', 'distcss', 'cssmin']);
 grunt.registerTask('build', ['clean', 'shared_config', 'bagel:dirs', 'dist', 'clean:docs', 'copy:docs', 'doccss', 'docs', 'assemble:mockups']);
