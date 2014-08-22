@@ -1,7 +1,7 @@
 @mixin button-mytheme {
-	/*******************************
-				Button
-	*******************************/
+	/* Button
+	========================================
+	======================================== */
 	.ui.button {
 		background-color: palette(neutral, white);
 		color: palette(mytheme, red);
@@ -12,35 +12,34 @@
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	}
 
-	/*******************************
-				States
-	*******************************/
+	/* States
+	======================================== */
 	.ui.button {
-		/*--------------
-			Active
-		---------------*/
+		/**
+		 * Active
+		 */
 		&.active{
 			color: palette(neutral, white);
 			background-color: palette(mytheme, red);
 		}
-		/*--------------
-			Hover
-		---------------*/
+		/**
+		 * Hover
+		 */
 		&:hover,
 		&.active:hover  {
 			background-color: palette(mytheme, red, 10);
 		}
-		/*--------------
-			Down
-		---------------*/
+		/**
+		 * Down
+		 */
 		&:active,
 		&.active:active {
 			color: palette(neutral, white);
 			background-color: palette(mytheme, red);
 		}
-		/*--------------
-			Loading
-		---------------*/
+		/**
+		 * Loading
+		 */
 		&.loading {
 			position: relative;
 			cursor: default;
@@ -63,9 +62,9 @@
 				box-shadow: none;
 			}
 		}
-		/*-------------------
-			Disabled
-		--------------------*/
+		/**
+		 * Disabled
+		 */
 		&.disabled,
 		&.disabled:hover,
 		&.disabled.active {
@@ -76,13 +75,12 @@
 		}
 	}
 
-	/*******************************
-				Types
-	*******************************/
+	/* Types
+	======================================== */
 	.ui.button {
-		/*-------------------
-			Primary
-		--------------------*/
+		/**
+		 * Primary
+		 */
 		&.primary {
 			background-color: palette(mytheme, blue);
 			color: palette(neutral, white);
@@ -97,9 +95,9 @@
 				background-color: palette(mytheme, blue, 110);
 			}
 		}
-		/*-------------------
-			Secondary
-		--------------------*/
+		/**
+		 * Secondary
+		 */
 		&.secondary {
 			background-color: palette(neutral, white);
 			color: palette(mytheme, blue);
@@ -114,9 +112,9 @@
 				background-color: palette(mytheme, blue, 10);
 			}
 		}
-		/*-------------------
-			Social
-		--------------------*/
+		/**
+		 * Social
+		 */
 		/* Facebook */
 		&.facebook {
 			background-color: palette(social, facebook);
@@ -251,17 +249,16 @@
 				background-color: palette(info, error, 105);
 			}
 		}
-		/*--------------
-			Icon
-		---------------*/
+		/**
+		 * Icon
+		 */
 		> .icon {
 			margin-right: 0.6em;
 		}
 	}
 
-	/*******************************
-			Variations
-	*******************************/
+	/* Variations
+	======================================== */
 	.ui.button, .ui.buttons {
 
 		&.basic,
@@ -270,9 +267,9 @@
 			color: palette(neutral, black)!important;
 			border: none;
 		}
-		/*-------------------
-				Sizes
-		--------------------*/
+		/**
+		 * Sizes
+		 */
 		font-size: 1rem;
 
 		&.mini,
@@ -310,9 +307,9 @@
 			font-size: 1.5rem;
 			font-weight: bold;
 		}
-		/*--------------
-			Toggle
-		---------------*/
+		/**
+		 * Toggle
+		 */
 		/* Toggle (Modifies active state to give affordances) */
 		&.toggle .active.button,
 		&.toggle.active {
@@ -323,9 +320,9 @@
 				background-color: #58CB73 !important;
 			}
 		}
-		/*--------------
-		Labeled Icon
-		---------------*/
+		/**
+		 * Labeled Icon
+		 */
 		&.labeled.icon > .button > .icon,
 		&.labeled.icon > .icon {
 			background-color: rgba(0, 0, 0, 0.05);

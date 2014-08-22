@@ -1,6 +1,6 @@
 {
   "name": "bagel-boilerplate",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "title": "Bagel UI Boilerplate",
   "description": "Delicious UI Framework",
   "homepage": "http://goodtwin.co",
@@ -14,7 +14,7 @@
     "url": "git://github.com/goodtwin/bagel-boilerplate.git"
   },
   "dependencies": {
-    "bagel-core": "git://github.com/goodtwin/bagel-core.git#v0.1.7"
+    "bagel-core": "git://github.com/goodtwin/bagel-core.git#v0.1.8"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
